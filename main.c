@@ -22,8 +22,8 @@ static int host(int argc, char *argv[]){
       data[2] = argv[3];
 
       MSG_process_create("copy1", create_copy, data, MSG_host_self());
-      //MSG_process_create("copy2", create_copy, data, MSG_host_self());
-      //MSG_process_create("copy3", create_copy, data, MSG_host_self());
+      MSG_process_create("copy2", create_copy, data, MSG_host_self());
+      MSG_process_create("copy3", create_copy, data, MSG_host_self());
   }
 
   return 0;
