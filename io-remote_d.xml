@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
+<platform version="4">
+
+  <process host="carl" function="host">
+  </process>
+  <process host="dave" function="host">
+    <argument value = "c:\Windows\Professional.xml"/>
+    <argument value = "carl"/>
+    <argument value = "/scratch/mailbox/Professional.xml"/>
+  </process>
+</platform>
