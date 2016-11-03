@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/Storage.dir/main.cpp.o  -o Storage -lsimgrid 

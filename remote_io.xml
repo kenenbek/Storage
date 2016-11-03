@@ -6,11 +6,11 @@
   </config>
 
   <AS id="AS0" routing="Full">
-    <storage_type id="SATA-II_HDD" size="500GB" model="linear_no_lat"
+    <storage_type id="SATA-II_HDD" size="5GB" model="linear_no_lat"
                   content_type="txt_unix" content="content/small_content.txt">
-      <model_prop id="Bread" value="92MBps"/> 
-      <model_prop id="Bwrite" value="62MBps"/> 
-      <model_prop id="Bconnection" value="122MBps"/> 
+      <model_prop id="Bread" value="1kBps"/>
+      <model_prop id="Bwrite" value="1kBps"/>
+      <model_prop id="Bconnection" value="100MBps"/>
     </storage_type>
 
     <storage id="Disk1" typeId="SATA-II_HDD" attach="carl"/>
@@ -25,7 +25,7 @@
       <mount storageId="Disk2" name="c:"/>
     </host>
 
-    <link id="link6" bandwidth="125MBps" latency="50us"/>
+    <link id="link6" bandwidth="1kBps" latency="0us" state_file="fail.fail"/>
 
 
     <route src="carl" dst="dave">

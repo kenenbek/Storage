@@ -1,0 +1,3 @@
+/home/ken/ClionProjects/Storage/CMakeFiles/edit_cache.dir
+/home/ken/ClionProjects/Storage/CMakeFiles/rebuild_cache.dir
+/home/ken/ClionProjects/Storage/CMakeFiles/Storage.dir
