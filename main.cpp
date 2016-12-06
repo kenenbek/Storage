@@ -4,16 +4,26 @@
  * under the terms of the license (GNU LGPL) which comes with this package. */
 
 #include <simgrid/msg.h>
-#include <iostream>
-#include <chrono>
+
+int host(int argc, char* argv[]);
+int some_code(int argc, char* argv[]);
 
 using namespace std;
 XBT_LOG_NEW_DEFAULT_CATEGORY(remote_io, "Messages specific for this io example");
 
-int host(int argc, char* argv[]){
-    msg_file_t file = MSG_file_open("c:/doc/bin", NULL);
-    MSG_file_read(file, 56250);
+int some_code(int argc, char **argv)
+{
+    msg_file_t file = MSG_file_open("/scratch/include/xbt/fifo.h", NULL);
+    MSG_file_rcopy(file, MSG_host_self(), "c:/kotok");
     XBT_INFO("%zd", MSG_file_get_size(file));
+    MSG_file_close(file);
+    return 0;
+}
+int host(int argc, char* argv[]){
+    for (int i = 0; i < 50; i++){
+    	std::string name = to_string(i);
+	MSG_process_create(name.c_str(), some_code, NULL, MSG_host_self());
+    }
     return 0;
 }
 

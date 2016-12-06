@@ -1,12 +1,9 @@
 <?xml version='1.0'?>
 <!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
 <platform version="4">
-  <config>
-    <prop id="path" value="../examples/platforms/"/>
-  </config>
 
   <AS id="AS0" routing="Full">
-    <storage_type id="SATA-II_HDD" size="5GB" model="linear_no_lat"
+    <storage_type id="SATA-II_HDD" size="10GB" model="linear_no_lat"
                   content_type="txt_unix" content="content/small_content.txt">
       <model_prop id="Bread" value="1kBps"/>
       <model_prop id="Bwrite" value="1kBps"/>
@@ -21,11 +18,13 @@
     <host id="carl" speed="1Gf">
       <mount storageId="Disk1" name="/scratch"/>
     </host>
-    <host id="dave" speed="1Gf">
+
+    <host id="dave" speed="1Gf" core="1">
       <mount storageId="Disk2" name="c:"/>
+      <mount storageId="Disk1" name="/scratch"/>
     </host>
 
-    <link id="link6" bandwidth="1kBps" latency="0us" state_file="fail.fail"/>
+    <link id="link6" bandwidth="1kBps" latency="0us"/>
 
 
     <route src="carl" dst="dave">
